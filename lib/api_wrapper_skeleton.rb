@@ -1,4 +1,5 @@
 require 'api_wrapper_skeleton/version'
+require 'api_wrapper_skeleton/configuration'
 require 'api_wrapper_skeleton/resources'
 require 'api_wrapper_skeleton/helpers'
 
@@ -8,4 +9,16 @@ module ApiWrapperSkeleton
 
   include Resources
   include Helpers
+
+  class << self
+    attr_accessor :configuration
+  end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
 end

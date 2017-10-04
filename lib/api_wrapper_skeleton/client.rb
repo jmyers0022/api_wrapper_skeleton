@@ -2,10 +2,7 @@ require 'faraday'
 
 module ApiWrapperSkeleton
   class Client
-    def initialize(access_token:, api_url: nil)
-      @access_token = access_token
-      @api_url = api_url
-
+    def initialize
       generate_resource_methods
     end
 
@@ -14,6 +11,8 @@ module ApiWrapperSkeleton
         req.adapter :net_http
       end
     end
+
+    private
 
     def generate_resource_methods
       ApiWrapperSkeleton::Resources.resource_names.each do |name|
@@ -26,19 +25,14 @@ module ApiWrapperSkeleton
       end
     end
 
-    private
-
     def api_url
-      @api_url ||= ENV['MY_API_URL']
+      @api_url ||= ApiWrapperSkeleton.configuration.api_url
     end
 
     def connection_options
       {
         url: api_url,
-        headers: {
-          content_type: 'application/json',
-          authorization: "Token token=#{@access_token}"
-        }
+        headers: {}
       }
     end
   end
