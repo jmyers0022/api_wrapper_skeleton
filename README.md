@@ -1,26 +1,10 @@
 # ApiWrapperSkeleton
 
-TODO: Add description
+A template for an API wrapper gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'api_wrapper_skeleton'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install api_wrapper_skeleton
-
-## Usage
-
-TODO: Add usage instructions
+This isn't a gem you'd install. It's just a boilerplate for wrapping an API.
 
 ## Development
 
@@ -30,7 +14,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/api_wrapper_skeleton.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jmyers0022/api_wrapper_skeleton.
 
 ## License
 
