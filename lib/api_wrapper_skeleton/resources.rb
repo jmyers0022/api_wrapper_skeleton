@@ -5,7 +5,7 @@ module ApiWrapperSkeleton
     class << self
       def included(base)
         resource_names.each do |resource_name|
-          module_name = ApiWrapperSkeleton::Helpers.camelize(resource_name)
+          module_name = ApiWrapperSkeleton::Helpers.camelize_string(resource_name)
 
           autoload :"#{module_name}", "#{directory}/#{resource_name}"
         end

@@ -4,7 +4,7 @@ module ApiWrapperSkeleton
       # From Rails Inflection Method #camelize
       # https://github.com/rails/rails/blob/master/activesupport/lib/active_support/inflector/methods.rb
 
-      def camelize(string, uppercase_first_letter = true)
+      def camelize_string(string, uppercase_first_letter = true)
         if uppercase_first_letter
           string = string.sub(/^[a-z\d]*/) { $&.capitalize }
         else
