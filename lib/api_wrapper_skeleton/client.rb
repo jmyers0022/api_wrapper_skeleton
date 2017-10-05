@@ -15,10 +15,10 @@ module ApiWrapperSkeleton
     private
 
     def generate_resource_methods
-      ApiWrapperSkeleton::Resources.resource_names.each do |name|
+      ApiWrapperSkeleton::ResourceCollection.resource_names.each do |name|
         define_singleton_method(name) do
           klass_name = ApiWrapperSkeleton::Helpers.camelize_string(name)
-          klass = Object.const_get "ApiWrapperSkeleton::Resources::#{klass_name}"
+          klass = Object.const_get "ApiWrapperSkeleton::ResourceCollection::#{klass_name}"
 
           klass.new(connection)
         end
