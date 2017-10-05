@@ -12,7 +12,7 @@ RSpec.describe ApiWrapperSkeleton::Resource do
     before do
       ApiWrapperSkeleton::Resource.endpoint(
         action,
-        method: method,
+        http_method: method,
         path: path
       )
     end

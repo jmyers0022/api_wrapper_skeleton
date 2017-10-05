@@ -1,6 +1,6 @@
 class ApiWrapperSkeleton::Resources::Users < ApiWrapperSkeleton::Resource
-  endpoint :sign_in,  method: :post, path: '/users/sign_in'
-  endpoint :sign_out,  method: :post, path: '/users/sign_out'
-  endpoint :create, method: :post, path: '/users'
-  endpoint :show, method: :get,  path: '/users/:id'
+  endpoint :sign_in,  http_method: :post, path: '/users/sign_in'
+  endpoint :sign_out,  http_method: :post, path: '/users/sign_out'
+  endpoint :create, http_method: :post, path: '/users'
+  endpoint :show, http_method: :get,  path: '/users/:id'
 end

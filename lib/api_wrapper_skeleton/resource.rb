@@ -7,9 +7,9 @@ module ApiWrapperSkeleton
       @base_url = "#{connection.url_prefix}"
     end
 
-    def self.endpoint(action, config)
+    def self.endpoint(action, http_method:, path:)
       define_method(action) do |params|
-        send(config[:method], config[:path], params)
+        send(http_method, path, params)
       end
     end
 
