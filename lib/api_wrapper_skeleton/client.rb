@@ -18,7 +18,7 @@ module ApiWrapperSkeleton
       ApiWrapperSkeleton::ResourceCollection.resource_names.each do |name|
         define_singleton_method(name) do
           klass_name = ApiWrapperSkeleton::Helpers.camelize_string(name)
-          klass = Object.const_get "ApiWrapperSkeleton::ResourceCollection::#{klass_name}"
+          klass = ApiWrapperSkeleton::ResourceCollection.namespaced_class_for(klass_name)
 
           klass.new(connection)
         end
