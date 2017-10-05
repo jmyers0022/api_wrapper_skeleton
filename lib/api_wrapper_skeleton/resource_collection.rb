@@ -15,9 +15,9 @@ module ApiWrapperSkeleton
           File.join('lib', 'api_wrapper_skeleton', 'resources')
         )
       end
-
-      def namespaced_class_for(klass_name)
-        Object.const_get "#{self.name}::#{klass_name}"
+      
+      def namespaced_class_for(class_name)
+        Object.const_get "#{self.name}::#{class_name}"
       end
 
       protected

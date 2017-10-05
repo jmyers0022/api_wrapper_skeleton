@@ -15,40 +15,40 @@ module ApiWrapperSkeleton
 
     private
 
-    def post(action, params)
+    def post(path, params)
       @connection.post do |request|
-        request.url build_url(action.dup, params)
+        request.url build_url(path.dup, params)
         request.body = params.to_json
       end
     end
 
-    def get(action, params)
+    def get(path, params)
       @connection.get do |request|
-        request.url build_url(action.dup, params)
+        request.url build_url(path.dup, params)
       end
     end
 
-    def put(action, params)
+    def put(path, params)
       @connection.put do |request|
-        request.url build_url(action.dup, params)
+        request.url build_url(path.dup, params)
         request.body = params.to_json
       end
     end
 
-    def delete(action, params)
+    def delete(path, params)
       @connection.delete do |request|
-        request.url build_url(action.dup, params)
+        request.url build_url(path.dup, params)
       end
     end
 
-    def build_url(action, params)
-      action.tap do |a|
+    def build_url(path, params)
+      path.tap do |path_string|
         params.each do |k, v|
-          a.gsub!(/:#{k}/, v.to_s) if a.match(/:#{k}/)
+          path_string.gsub!(/:#{k}/, v.to_s) if path_string.match(/:#{k}/)
         end
       end
 
-      "#{@base_url}#{action}"
+      "#{@base_url}#{path}"
     end
   end
 end
