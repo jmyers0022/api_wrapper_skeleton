@@ -1,14 +1,13 @@
 module ApiWrapperSkeleton
   module ResourceCollection
+    RUBY_EXTENSION_REGEX = /.rb/
     RUBY_FILENAME_REGEX = /(\w*)(\.rb)/
 
     class << self
       def resource_names
-        resource_filenames.map do |filename|
-          next unless filename.end_with? 'rb'
-
-          filename.match(RUBY_FILENAME_REGEX)
-        end.compact.map{ |match| match[1] }
+        resource_filenames.grep(RUBY_EXTENSION_REGEX).map do |f| 
+          f.match(RUBY_FILENAME_REGEX)[1]
+        end
       end
 
       def directory
