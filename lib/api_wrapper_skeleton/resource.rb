@@ -13,6 +13,8 @@ module ApiWrapperSkeleton
       end
     end
 
+    private
+
     def post(action, params)
       @connection.post do |request|
         request.url build_url(action.dup, params)
@@ -38,8 +40,6 @@ module ApiWrapperSkeleton
         request.url build_url(action.dup, params)
       end
     end
-
-    private
 
     def build_url(action, params)
       action.tap do |a|
